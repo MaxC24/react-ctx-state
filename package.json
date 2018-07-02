@@ -1,0 +1,38 @@
+{
+  "name": "react-ctx-state",
+  "version": "0.0.1",
+  "description": "Super easy react state manager, built using the React new Context API",
+  "main": "build/index.js",
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.4.1",
+    "webpack": "^2.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MaxC24/react-ctx-state.git"
+  },
+  "keywords": [
+    "react",
+    "context",
+    "state"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Massimo Crapanzano",
+    "email": "massimo.crapanzano@gmail.com"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1"
+  }
+}
