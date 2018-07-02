@@ -2,7 +2,7 @@
 
 Super easy react state manager, built using the React new Context API.
 
-The module exposes a function called createContext which accepts three paramenters:
+The module exposes a function called **createContext** which accepts three paramenters:
 
 - **name** (a string that will be the name of the props attribute in the cosumer components)
 - **state** (Application state)
