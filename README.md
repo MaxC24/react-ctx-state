@@ -20,6 +20,7 @@ Example:
 First of all create state and actions for the application:
 
 ```javascript
+//context.js
 import createContext from 'react-ctx-state';
 let state = {
     user: { name: 'Massimo' }
@@ -33,7 +34,7 @@ let actions = {
 }
 
 //stateContext is an object with two methods: provider and consumer.
-let stateContext = createContext('stateContext', state, actions);
+export default createContext('stateContext', state, actions);
 ```
 
 Pass the state to all the children components:
@@ -57,6 +58,8 @@ export default stateContext.provider(App);
 Then consume the state in a child component:
 ```javascript
 //components.js
+import stateContext from './context.js'
+
 let Div = ({stateContext}) => {
     let { user } = stateContext;
     return (
@@ -89,4 +92,27 @@ export default Children;
 
 If there are multiple contexts, it's possible to use (provide|consume)MultipleCtx functions.
 
-```
+```javascript
+import {provideMultipleCtx, consumeMultipleCtx} from 'react-ctx-state'
+
+//let's say we created two extra contexts in contexts.js:
+import { userContext, cartContext } from './context.js'
+
+let Div = ({ userContext, cartContext }) => {
+    return (
+        <div>
+            <div> { userContext.name } </div>
+            <div> { cartContext.cartName }</div>
+        </div>
+    )
+}
+
+//the Div component now will be able to consumer more than one context:
+Div = consumeMultipleCtx([cartContext, userContext], Div)
+
+const App = () => {
+    return <Div />
+}
+
+//The app Component now is provided with more than one context:
+export default provideMultipleCtx([cartContext, userContext], App);
