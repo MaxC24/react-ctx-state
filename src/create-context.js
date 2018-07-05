@@ -1,20 +1,8 @@
 import React from 'react';
-let Context = React.createContext({});
-
-let consumer = Component => props => {
-        return (
-            <Context.Consumer> 
-                {
-                    context => {
-                        console.log(Component)
-                        return <Component {...props} {...context}/>
-                    }
-                }
-            </Context.Consumer>
-        )
-}
 
 function createContext(name, state, actions) {
+    let Context = React.createContext({});
+
     function provider(Component) {
         class CurrentContext extends React.Component {
             constructor(props) {
@@ -50,6 +38,20 @@ function createContext(name, state, actions) {
         }
         return CurrentContext;
     }
+
+
+    let consumer = Component => props => {
+        return (
+            <Context.Consumer> 
+                {
+                    context => {
+                        return <Component {...props} {...context}/>
+                    }
+                }
+            </Context.Consumer>
+        )
+    }
+
     return {
         provider: provider,
         consumer: consumer
