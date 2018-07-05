@@ -6,6 +6,7 @@ let consumer = Component => props => {
             <Context.Consumer> 
                 {
                     context => {
+                        console.log(Component)
                         return <Component {...props} {...context}/>
                     }
                 }
