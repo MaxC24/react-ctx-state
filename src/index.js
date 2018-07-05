@@ -3,4 +3,4 @@ import { mP, mC } from './multiple-contexts'
 
 export default createContext;
 export const provideMultipleCtx = mP
-export const consumeMultipelCtx = mC
+export const consumeMultipleCtx = mC

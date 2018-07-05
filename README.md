@@ -2,6 +2,8 @@
 
 Super easy react state manager, built using the React new Context API.
 
+Must use React version equal or greater than 16.3.3 
+
 The module exposes a function called **createContext** which accepts three paramenters:
 
 - **name** (a string that will be the name of the props attribute in the cosumer components)
@@ -83,4 +85,8 @@ function Children = () => {
 }
 
 export default Children;
+```
+
+If there are multiple contexts, it's possible to use (provide|consume)MultipleCtx functions.
+
 ```
