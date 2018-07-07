@@ -1,4 +1,5 @@
 import React from 'react';
+import { resolve } from 'path';
 
 function createContext(name, state, actions) {
     let Context = React.createContext({});
@@ -13,8 +14,13 @@ function createContext(name, state, actions) {
                     this.actions[key] = (...args) => {
                         let result = actions[key](...args)(this.state);
                         if(typeof result.then === 'function') {
-                            result.then(newState => {
-                                this.setState(newState);
+                            return result.then(newState => {
+                                return new Promise((resolve, reject) => {
+                                    this.setState(newState, function(){
+                                        //state has now been set;
+                                        resolve();
+                                    });
+                                })
                             })
                         } else {
                             this.setState(result)
