@@ -1,6 +1,6 @@
 {
   "name": "react-ctx-state",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Super easy to use react state manager, built using the React new Context API",
   "main": "build/index.js",
   "dependencies": {
