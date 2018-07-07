@@ -1,6 +1,5 @@
 //pass an array of contexts:
 export function mP(arr, Component) {
-    console.log('hey')
     let newComp;
     arr.forEach(ctx => {
         newComp = ctx.provider(Component)
